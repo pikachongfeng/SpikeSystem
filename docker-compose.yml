@@ -1,0 +1,40 @@
+version: "2" 
+
+networks: 
+  django: 
+services: 
+  mysql_server: 
+    restart: always
+    build: mysql
+    networks:  
+      - django
+    environment: 
+      - MYSQL_USER="mysql"
+      - MYSQL_PASSWORD="123456"
+      - MYSQL_ROOT_PASSWORD="root"
+    ports: 
+      - "3306:3306"
+  django-spikesystem: 
+    restart: always
+    build: spikesystem
+    networks:  
+      - django
+    depends_on: 
+      - mysql_server
+    ports: 
+      - "8000:8000"
+  nginx: 
+    build: nginx
+    networks: 
+      - django
+    depends_on: 
+      - django-spikesystem
+    ports: 
+      - "80:80"
+    volumes: 
+      - ./nginx_log:/var/log/nginx
+  redis:
+    restart: always
+    image: redis:3.2.0
+    expose:
+      - "6379"

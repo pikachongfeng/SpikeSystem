@@ -1,0 +1,38 @@
+CREATE TABLE tb_buildings(
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    Building_ID varchar(10) NOT NULL
+);
+CREATE TABLE tb_units(
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    Unit_ID varchar(5) NOT NULL
+);
+ALTER TABLE tb_units ADD COLUMN Building_id INT NULL;
+CREATE TABLE tb_rooms(
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    unit_id INT,
+    room_id varchar(10),
+    gender varchar(1),
+    total_bed INT,
+    avail_bed INT,
+    unuseable_bed INT,
+    FOREIGN KEY (unit_id) REFERENCES tb_units (id)
+);
+INSERT INTO tb_buildings (id,Building_ID) VALUES (1,'5'),(2,'8'),(3,'13'),(4,'14');
+INSERT INTO tb_units (id,building_id,Unit_ID) VALUES (1,'5','1'),(2,'5','2'),(3,'8','1'),(4,'8','2'),(5,'13','1'),(6,'13','2'),(7,'14','1'),(8,'14','2');
+INSERT INTO tb_rooms (id,unit_id,room_id,gender,total_bed,avail_bed,unuseable_bed) VALUES 
+(1,'5 1','E111','男',4,2,0),
+(2,'5 1','E112','男',4,4,0),
+(3,'5 2','E113','女',4,0,0),
+(4,'5 2','E114','女',4,0,0),
+(5,'8 1','E115','男',4,1,0),
+(6,'8 1','E116','男',4,3,0),
+(7,'8 2','E117','女',4,4,0),
+(8,'8 2','E118','女',4,1,0),
+(9,'13 1','E119','男',4,2,0),
+(10,'13 1','E120','男',4,4,0),
+(11,'13 2','E121','女',4,2,0),
+(12,'13 2','E122','女',4,3,0),
+(13,'14 1','E123','男',4,0,0),
+(14,'14 1','E124','男',4,0,0),
+(15,'14 2','E125','女',4,4,0),
+(16,'14 2','E126','女',4,3,0);

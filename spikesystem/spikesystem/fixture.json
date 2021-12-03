@@ -1,0 +1,144 @@
+[
+    {
+      "model": "order.Building",
+      "pk": 1,
+      "fields": {
+        "Building_ID": "5"
+      }
+    },
+    {
+        "model": "order.Building",
+        "pk": 2,
+        "fields": {
+          "Building_ID": "8"
+        }
+    },
+    {
+      "model": "order.Unit",
+      "pk": 1,
+      "fields": {
+        "building_id": 1,
+        "Unit_ID": "1"
+      }
+    },
+    {
+        "model": "order.Unit",
+        "pk": 2,
+        "fields": {
+          "building_id": 1,
+          "Unit_ID": "2"
+        }
+    },
+    {
+        "model": "order.Unit",
+        "pk": 3,
+        "fields": {
+          "building_id": 2,
+          "Unit_ID": "1"
+        }
+    },
+    {
+        "model": "order.Unit",
+        "pk": 4,
+        "fields": {
+          "building_id": 2,
+          "Unit_ID": "2"
+        }
+    },
+    {
+        "model": "order.Room",
+        "pk": 1,
+        "fields": {
+          "unit_id": 1,
+          "room_id": "e1",
+          "gender": "男",
+          "total_bed": 4,
+          "avail_bed": 4,
+          "unuseable_bed": 0
+        }
+    },
+    {
+        "model": "order.Room",
+        "pk": 2,
+        "fields": {
+          "unit_id": 1,
+          "room_id": "e2",
+          "gender": "男",
+          "total_bed": 4,
+          "avail_bed": 4,
+          "unuseable_bed": 0
+        }
+    },
+    {
+        "model": "order.Room",
+        "pk": 3,
+        "fields": {
+          "unit_id": 2,
+          "room_id": "e3",
+          "gender": "女",
+          "total_bed": 4,
+          "avail_bed": 4,
+          "unuseable_bed": 0
+        }
+    },
+    {
+        "model": "order.Room",
+        "pk": 4,
+        "fields": {
+          "unit_id": 2,
+          "room_id": "e4",
+          "gender": "女",
+          "total_bed": 4,
+          "avail_bed": 4,
+          "unuseable_bed": 0
+        }
+    },
+    {
+        "model": "order.Room",
+        "pk": 5,
+        "fields": {
+          "unit_id": 3,
+          "room_id": "e5",
+          "gender": "男",
+          "total_bed": 4,
+          "avail_bed": 4,
+          "unuseable_bed": 0
+        }
+    },
+    {
+        "model": "order.Room",
+        "pk": 6,
+        "fields": {
+          "unit_id": 3,
+          "room_id": "e6",
+          "gender": "男",
+          "total_bed": 4,
+          "avail_bed": 4,
+          "unuseable_bed": 0
+        }
+    },
+    {
+        "model": "order.Room",
+        "pk": 7,
+        "fields": {
+          "unit_id": 4,
+          "room_id": "e7",
+          "gender": "女",
+          "total_bed": 4,
+          "avail_bed": 4,
+          "unuseable_bed": 0
+        }
+    },
+    {
+        "model": "order.Room",
+        "pk": 8,
+        "fields": {
+          "unit_id": 4,
+          "room_id": "e8",
+          "gender": "女",
+          "total_bed": 4,
+          "avail_bed": 4,
+          "unuseable_bed": 0
+        }
+    }
+  ]

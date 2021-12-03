@@ -1,0 +1,4 @@
+CREATE DATABASE SpikeSystem;
+ALTER DATABASE SpikeSystem CHARACTER SET utf8 COLLATE utf8_general_ci;
+GRANT ALL PRIVILEGES ON SpikeSystem.* TO 'mysql'@'%' IDENTIFIED BY '123456';
+USE SpikeSystem;
