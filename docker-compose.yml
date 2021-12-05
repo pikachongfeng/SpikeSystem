@@ -16,11 +16,16 @@ services:
       - "3306:3306"
   django-spikesystem: 
     restart: always
-    build: spikesystem
+    build: 
+      context: ./spikesystem
+      dockerfile: Dockerfile
     networks:  
       - django
     depends_on: 
       - mysql_server
+      - worker
+      - rabbit
+      - redis
     ports: 
       - "8000:8000"
   nginx: 
@@ -35,6 +40,30 @@ services:
       - ./nginx_log:/var/log/nginx
   redis:
     restart: always
-    image: redis:3.2.0
+    image: redis
     expose:
       - "6379"
+    networks: 
+      - django
+  rabbit:
+    hostname: rabbit
+    image: rabbitmq:3-management
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=mypass
+    networks: 
+      - django
+    ports:
+      - "5672:5672"  # we forward this port because it's useful for debugging
+      - "15672:15672"  # here, we can access rabbitmq management plugin
+  # Celery worker
+  worker:
+    build: 
+      context: ./celery
+      dockerfile: Dockerfile2
+    restart: "no"
+    networks: 
+      - django
+    depends_on:
+      - rabbit
+      - redis
