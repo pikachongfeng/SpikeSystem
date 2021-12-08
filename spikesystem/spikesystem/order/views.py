@@ -34,7 +34,6 @@ def redis_insert(request):
     unit2 = Units[1]
     unit3 = Units[2]
     unit4 = Units[3]
-
     cache.set('gender_of_' + str(unit1),'男')
     cache.set('gender_of_' + str(unit2),'女')
     cache.set('gender_of_' + str(unit3),'男')
